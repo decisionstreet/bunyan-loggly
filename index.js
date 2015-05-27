@@ -15,6 +15,10 @@ function Bunyan2Loggly (logglyConfig, buffer) {
 
 	this.logglyConfig.tags = this.logglyConfig.tags || [];
 
+    // https://github.com/nodejitsu/node-loggly/issues/35
+    // https://github.com/nodejitsu/node-loggly/pull/37
+    this.logglyConfig.useTagHeader = this.logglyConfig.useTagHeader || false;
+
 	// create the client
 	this.client = loggly.createClient(logglyConfig);
 
